@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #222;
+      }
+
+      h1 {
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span id="f2"></span></h1>
+
+    <script>
+      function countDown(countDownDate) {
+        var el = document.getElementById("f2");
+        var time, dateFinal, final, date, result, d;
+        var dateFinal = Date.parse(countDownDate);
+
+        function GFG_Fun() {
+          time = new Date().getTime();
+          final = dateFinal - time;
+          date = new Date(final);
+
+          function formatted_date() {
+            result = "";
+            d = date;
+            result +=
+              d.getDate() +
+              " days " +
+              d.getHours() +
+              " hours " +
+              d.getMinutes() +
+              " minutes " +
+              d.getSeconds() +
+              " seconds ";
+            return result;
+          }
+
+          if (dateFinal <= time) {
+            el.innerHTML = "0 days 0 hours 0 minutes 0 seconds";
+          } else {
+            el.innerHTML = formatted_date();
+          }
+        }
+
+        setInterval(function () {
+          GFG_Fun();
+        }, 1000);
+      }
+
+      countDown("July 1, 2021");
+    </script>
+  </body>
+</html>
